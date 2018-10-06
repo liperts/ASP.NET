@@ -1,0 +1,44 @@
+﻿@*@using SuperMarioShop.Data.Models*@
+@*@model IEnumerable<Product>*@
+@*@using SuperMarioShop.ViewModels*@
+@*@model ProductListViewModel*@
+
+<div>
+    <h2>All products are showing here</h2>
+</div>
+
+@*<h2>@ViewBag.Name</h2>*@
+<h2>@Model.CurrentCategory</h2>
+
+@*@if (Model == null)*@
+@if (Model.Products == null)
+{
+    <span>No items found</span>
+}
+else
+{
+    @*@foreach (var product in Model)*@
+    @foreach (var product in Model.Products)
+    {
+        @*<div>
+            <h4>Product Name: @product.Name</h4>
+            <p>Price: @product.Price.ToString("c")</p>
+        </div>*@
+
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src="@product.ImageThumbnailUrl" alt="" />
+                <div class="caption">
+                    <h3 class="pull-right">@product.Price.ToString("c")</h3>
+                    <h3>
+                        <a>@product.Name</a>
+                    </h3>
+                    <p>@product.ShortDescription</p>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
+
