@@ -10,20 +10,18 @@
 @*<h2>@ViewBag.Name</h2>*@
 <h2>@Model.CurrentCategory</h2>
 
-@*@if (Model == null)*@
-@if (Model.Products == null)
+@if (Model == null)
 {
     <span>No items found</span>
 }
 else
 {
-    @*@foreach (var product in Model)*@
-    @foreach (var product in Model.Products)
+    @foreach (var product in Model)
     {
-        @*<div>
+        <div>
             <h4>Product Name: @product.Name</h4>
             <p>Price: @product.Price.ToString("c")</p>
-        </div>*@
+        </div>
 
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
