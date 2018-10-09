@@ -11,5 +11,10 @@ namespace SuperMarioShop.Data.Models
         public string CategoryName { get; set; }
         public string Description { get; set; }
         public List<Product> Products { get; set; }
+
+        public static implicit operator Category(Dictionary<string, Category> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

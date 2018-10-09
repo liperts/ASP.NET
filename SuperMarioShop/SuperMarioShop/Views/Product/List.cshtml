@@ -16,12 +16,12 @@
 }
 else
 {
-    @foreach (var product in Model)
+    @foreach (var product in Model.Products)
     {
-        <div>
+        @*<div>
             <h4>Product Name: @product.Name</h4>
             <p>Price: @product.Price.ToString("c")</p>
-        </div>
+        </div>*@
 
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">

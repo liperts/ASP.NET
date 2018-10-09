@@ -8,8 +8,8 @@ namespace SuperMarioShop.Data.interfaces
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> Products { get; set; }
-        IEnumerable<Product> PreferredProducts { get; set; }
+        IEnumerable<Product> Products { get; }
+        IEnumerable<Product> PreferredProducts { get; }
         Product GetProductById(int productId);
     }
 }

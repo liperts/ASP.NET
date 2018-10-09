@@ -23,7 +23,7 @@ namespace SuperMarioShop.Data.mocks
                         LongDescription = "Hit pause and take a break from your quest to rescue Princess Toadstool and Dinosaur Land from the clutches of the evil Bowser and enjoy a cup with this stylish Super Nintendo SNES Super Mario World Heat Change Mug.",
                         Category = _categoryRepository.Categories.First(),
                         ImageUrl = "../Images/Mug01_L.jpg",
-                        InStock = 30,
+                        InStock = 10,
                         IsPreferredProduct = true,
                         ImageThumbnailUrl = "../Images/Mug01_S.jpg"
                     },
@@ -33,7 +33,7 @@ namespace SuperMarioShop.Data.mocks
                         LongDescription = "Treat your little gamer to this Super Mario Bros t-shirt. Printed all over with a colourful pattern featuring Mario, Luigi, Yoshi, Bowser and more, and finished with a bold ‘Game Over’ slogan, it’ll make a super addition to their weekend wardrobe.",
                         Category =  _categoryRepository.Categories.First(),
                         ImageUrl = "../Images/TShirt01_L.jpg",
-                        InStock = 20,
+                        InStock = 10,
                         IsPreferredProduct = false,
                         ImageThumbnailUrl = "../Images/TShirt01_S.jpg"
                     },
@@ -43,7 +43,7 @@ namespace SuperMarioShop.Data.mocks
                         LongDescription = "This Super Mario Bros. 30th Anniversary T-Shirt is available in a range of sizes (from Small to XL) and features a chest print of the Super Mario Bros. 30th Anniversary logo.",
                         Category =  _categoryRepository.Categories.First(),
                         ImageUrl = "../Images/TShirt02_L.jpg",
-                        InStock = 100,
+                        InStock = 10,
                         IsPreferredProduct = false,
                         ImageThumbnailUrl = "../Images/TShirt02_S.jpg"
                     },
