@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using SuperMarioShop.Data;
 using SuperMarioShop.Data.interfaces;
 using SuperMarioShop.Data.mocks;
+using SuperMarioShop.Data.Models;
 using SuperMarioShop.Data.Repositories;
 
 namespace SuperMarioShop
@@ -42,6 +43,12 @@ namespace SuperMarioShop
             // the second parameter from this configuration below (real reporsitories)
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+
+            // Provides a instance for the IHttpContextAccessor
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            // Creates an object which is associated to the request
+            // If two people ask me for the ShoopingCart object are going to get different instances
+            services.AddScoped(sp => ShoppingCart.GetCart(sp));
 
             services.AddMvc();
             services.AddMemoryCache();
@@ -77,9 +84,16 @@ namespace SuperMarioShop
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            app.UseSession();
+            // app.UseMvcWithDefaultRoute();
+            // The last one is the 'same' that code below:
+            app.UseMvc(routes =>
+            {
+                // id is optional -> ? means that is optional
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+            });
 
-            // The last one is the same that code below:
+            
             //app.UseMvc(routes =>
             //{
             //    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");

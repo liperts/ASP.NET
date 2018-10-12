@@ -1,0 +1,20 @@
+﻿@model ShoppingCartViewModel
+
+@* The part that we comment is about authentication, and we will use that further.
+    @using Microsoft.AspNetCore.Identity
+    @using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+    @inject SignInManager<IdentityUser> SignInManager *@
+
+@if (Model.ShoppingCart.ShoppingCartItems.Count > 0 @* && SignInManager.IsSignedIn(User) *@)
+{
+<li>
+    <a asp-controller="ShoppingCart">
+        @* This create the basket cart icon*@
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+        <span id="cart-status">
+            @* It shows the number of the items within ShoppingCart (Count can sum it) *@
+            @Model.ShoppingCart.ShoppingCartItems.Count
+        </span>
+    </a>
+</li>
+}
