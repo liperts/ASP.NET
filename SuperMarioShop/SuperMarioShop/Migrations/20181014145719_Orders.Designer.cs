@@ -10,8 +10,8 @@ using SuperMarioShop.Data;
 namespace SuperMarioShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20181012145352_CartItem")]
-    partial class CartItem
+    [Migration("20181014145719_Orders")]
+    partial class Orders
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,77 @@ namespace SuperMarioShop.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("SuperMarioShop.Data.Models.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AddressLine1")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<string>("AddressLine2");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("OrderPlaced");
+
+                    b.Property<decimal>("OrderTotal");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasMaxLength(25);
+
+                    b.Property<string>("State")
+                        .HasMaxLength(10);
+
+                    b.Property<string>("ZipCode")
+                        .IsRequired()
+                        .HasMaxLength(10);
+
+                    b.HasKey("OrderId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("SuperMarioShop.Data.Models.OrderDetail", b =>
+                {
+                    b.Property<int>("OrderDetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Amount");
+
+                    b.Property<int>("OrderId");
+
+                    b.Property<decimal>("Price");
+
+                    b.Property<int>("ProductId");
+
+                    b.HasKey("OrderDetailId");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("SuperMarioShop.Data.Models.Product", b =>
@@ -84,6 +155,19 @@ namespace SuperMarioShop.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ShoppingCartItems");
+                });
+
+            modelBuilder.Entity("SuperMarioShop.Data.Models.OrderDetail", b =>
+                {
+                    b.HasOne("SuperMarioShop.Data.Models.Order", "Order")
+                        .WithMany("OrderLines")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("SuperMarioShop.Data.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("SuperMarioShop.Data.Models.Product", b =>

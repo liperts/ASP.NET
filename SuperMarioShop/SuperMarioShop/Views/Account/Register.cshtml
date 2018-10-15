@@ -1,0 +1,45 @@
+﻿@model LoginViewModel
+
+<div class="row loginForm">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Register now at Super Mario Shop </h2>
+        @* Here we are using the Register() and Account controller (this one is the same as on Login.cshtml) *@
+        <form asp-controller="Account" asp-action="Register" method="post" class="form-horizontal" role="form">
+            <h4>Create a new account and order your first product today!</h4>
+            <hr />
+            <div class="form-group">
+                <label asp-for="Email" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailConfirm" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="EmailConfirm" class="form-control" />
+                    <span asp-validation-for="EmailConfirm" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group pull-right formPullRightButton">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-success " value="Register" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
