@@ -9,7 +9,7 @@ using assignment02.Models;
 namespace assignment02.Migrations
 {
     [DbContext(typeof(assignment02Context))]
-    [Migration("20181029021128_Initial")]
+    [Migration("20181029133658_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,7 +36,8 @@ namespace assignment02.Migrations
                     b.Property<string>("City")
                         .IsRequired();
 
-                    b.Property<string>("ConfirmPassword");
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired();
 
                     b.Property<string>("Email")
                         .IsRequired();

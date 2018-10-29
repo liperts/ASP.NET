@@ -33,6 +33,9 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    @* Thanks Harry for share the following code! \o/
+                        This code add a "Sign Up" link in the navbar's Home page. *@
+                    <li><a asp-area="" asp-controller="Members" asp-action="Create">Sign Up</a></li>
                 </ul>
             </div>
         </div>
@@ -44,7 +47,8 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2018 - assignment02</p>
+            @* Here we can change the footer to shows whatever we want. *@
+            <p><a target="_blank" href="https://github.com/liperts">&copy; 2018 - Lipe Teixeira</a></p>
         </footer>
     </div>
 

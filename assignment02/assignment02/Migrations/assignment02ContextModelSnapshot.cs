@@ -34,7 +34,8 @@ namespace assignment02.Migrations
                     b.Property<string>("City")
                         .IsRequired();
 
-                    b.Property<string>("ConfirmPassword");
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired();
 
                     b.Property<string>("Email")
                         .IsRequired();

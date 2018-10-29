@@ -21,7 +21,7 @@ namespace assignment02.Migrations
                     PostalCode = table.Column<string>(nullable: false),
                     Age = table.Column<int>(nullable: false),
                     Password = table.Column<string>(maxLength: 100, nullable: false),
-                    ConfirmPassword = table.Column<string>(nullable: true),
+                    ConfirmPassword = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     AlternativeEmail = table.Column<string>(nullable: true),
                     Phone = table.Column<int>(nullable: false)

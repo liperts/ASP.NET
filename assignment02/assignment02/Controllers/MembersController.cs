@@ -53,12 +53,14 @@ namespace assignment02.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,FirstName,LastName,Address,City,Province,PostalCode,Age,Password,ConfirmPassword,Email,AlternativeEmail,Phone,ReturnUrl")] Member member)
+        public async Task<IActionResult> Create([Bind("ID,FirstName,LastName,Address,City,Province,PostalCode,Age,Password,ConfirmPassword,Email,AlternativeEmail,Phone")] Member member)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(member);
                 await _context.SaveChangesAsync();
+                // Thanks Harry for share the following code to display a message after successfully add new member! \o/
+                TempData["notice"] = "Thanks for registering with our website, your record was created successfully.";
                 return RedirectToAction(nameof(Index));
             }
             return View(member);
@@ -85,7 +87,7 @@ namespace assignment02.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,FirstName,LastName,Address,City,Province,PostalCode,Age,Password,ConfirmPassword,Email,AlternativeEmail,Phone,ReturnUrl")] Member member)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,FirstName,LastName,Address,City,Province,PostalCode,Age,Password,ConfirmPassword,Email,AlternativeEmail,Phone")] Member member)
         {
             if (id != member.ID)
             {
