@@ -53,12 +53,20 @@ namespace assignment02.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,FirstName,LastName,Address,City,Province,PostalCode,Age,Password,ConfirmPassword,Email,AlternativeEmail,Phone")] Member member)
+        public async Task<IActionResult> Create([Bind("ID,FirstName,LastName,Address,City,Province,PostalCode,Age,Password," +
+            "ConfirmPassword,Email,AlternativeEmail,Phone")] Member member, bool AnotherMember=false)
+            // Above, we added AnotherMember as a Create's parameter (false is a default value)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(member);
                 await _context.SaveChangesAsync();
+                // If AnotherMember is true, which means we checked the checkbox...
+                if (AnotherMember)
+                {
+                    // ...redirect to Create (after add a new member, stay in the same page to add another member)
+                    return RedirectToAction(nameof(Create));
+                }
                 // Thanks Harry for share the following code to display a message after successfully add new member! \o/
                 TempData["notice"] = "Thanks for registering with our website, your record was created successfully.";
                 return RedirectToAction(nameof(Index));

@@ -74,6 +74,12 @@
                 <input asp-for="Phone" class="form-control" />
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
+            @* We can't use asp to add a checkbox here because this is not part of Member.cs (our model). 
+                Instead, we need to use pure HTML *@
+            <div class="form-group">
+                <label for="AnotherMember" class="control-label">Enter another member?</label>
+                <input id="AnotherMember" type="checkbox" name="AnotherMember" value="true" />
+            </div>
             <div class="form-group">
                 <input type="submit" value="Register" class="btn btn-default" />
                 @* The following line of code is to create a "Clear" button to reset all fields. *@
