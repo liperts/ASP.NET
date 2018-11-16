@@ -46,7 +46,7 @@ namespace assignment02.Models
         [Required]
         [Display(Name = "Age")]
         // Using regex to fix a range for age (min e max)
-        [RegularExpression("^([1][8-9]|[2-9][0-9]|[1][0-1][0-9]|[1][2][0])$", ErrorMessage = "Age should be between 18 and 120")]
+        [RegularExpression("^([1][8-9]|[2-9][0-9]|[1][0-1][0-9]|[1][2][0])$", ErrorMessage = "Age should be an integer between 18 and 120")]
         public int Age { get; set; }
 
         [Required]
@@ -76,7 +76,7 @@ namespace assignment02.Models
         public string AlternativeEmail { get; set; }
 
         [Display(Name = "Phone")]
-        public int Phone { get; set; }
+        public Nullable<int> Phone { get; set; }
 
     }
 }
