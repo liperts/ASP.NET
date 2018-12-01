@@ -22,8 +22,8 @@ namespace GamesForEveryone.Models
         [Required(ErrorMessage = "Please enter a city name")]
         public string City { get; set; }
 
-        [Required(ErrorMessage = "Please enter a state name")]
-        public string State { get; set; }
+        [Required(ErrorMessage = "Please enter a province name")]
+        public string Province { get; set; }
 
         public string Zip { get; set; }
 

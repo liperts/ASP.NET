@@ -18,7 +18,7 @@ namespace GamesForEveryone.Migrations
                     Line2 = table.Column<string>(nullable: true),
                     Line3 = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: false),
-                    State = table.Column<string>(nullable: false),
+                    Province = table.Column<string>(nullable: false),
                     Zip = table.Column<string>(nullable: true),
                     Country = table.Column<string>(nullable: false),
                     GiftWrap = table.Column<bool>(nullable: false)

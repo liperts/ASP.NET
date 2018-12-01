@@ -66,7 +66,7 @@ namespace GamesForEveryone.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<string>("State")
+                    b.Property<string>("Province")
                         .IsRequired();
 
                     b.Property<string>("Zip");
